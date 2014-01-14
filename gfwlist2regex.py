@@ -13,6 +13,7 @@ def convert_line(line):
         return line[1:-1]
         
     line = line.replace('*', '.+')
+    line = line.replace('(', r'\(').replace(')', r'\)')
     if line.startswith('||'):
         return '^https?:\/\/%s.*' % line[2:]  
     elif line.startswith('|'):
